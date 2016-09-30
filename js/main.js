@@ -43,12 +43,13 @@ Animal.prototype = {
     },
 
     buildMe: function() {
-      $('container').append("div class ='animal'></div>");
+  //    $('container').addClass('animal');
     },
 
     // init Function triggers buildCheck whenever a new species is built.
     init: function() {
       this.buildCheck();
+      this.buildMe();
     }
 
 };
