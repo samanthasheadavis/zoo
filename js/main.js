@@ -25,7 +25,32 @@ Animal.prototype = {
             this.lay();
             return "I'm a bird";
         }
+    },
+
+    // Try-Catch statements to make sure animal species have correct info
+    buildCheck: function() {
+        try {
+            if (typeof this.birthday !== "string") throw "Looks like birthday is not a string. Please enter birthday in 'dd month yyyy' format";
+        } catch (error) {
+            console.log(error);
+            // console.log(typeof emu.birthday);
+        }
+        try {
+            if (this.name === '' || this.birthday === '' || this.vertebrate === '') throw "Looks like you're missing some info. Please include a name, birthday and vertebrate class";
+        } catch (error) {
+            console.log(error);
+        }
+    },
+
+    buildMe: function() {
+      $('container').append("div class ='animal'></div>");
+    },
+
+    // init Function triggers buildCheck whenever a new species is built.
+    init: function() {
+      this.buildCheck();
     }
+
 };
 // -- Animal Constructor -- //
 
@@ -73,32 +98,24 @@ function Animal(name, birthday, vertebrate) { // birthday must be put in 'dd mon
     };
 }
 
-var emu = new Animal('', '21 July 1993', 'mammal');
+// -- Animal Instances -- //
 
-try {
-    if (typeof this.birthday !== String) throw new Error("birthday is not a string!");
-} catch (error) {
-    // console.log(error);
-}
-try {
-    if (this.name === undefined || this.birthday === undefined || this.vertebrate === undefined) throw "looks like you're missing some info. Please include a name, birthday and vertebrate class";
-} catch (error) {
-    // console.log("looks like you're missing some info. Please include a name, birthday and vertebrate class");
-}
-
+var emu = new Animal('Earl', '21 July 1993', 'mammal');
+emu.init();
 // console.log("Hi my name is " + emu.name + ", I'm " + emu.getAge() + " and " + emu.vertebrateClass() + ". " + emu.giveBirth());
 // console.log(emu.toString());
 
 var blobfish = new Animal('Gertrude', '13 May 2001', 'fish');
+blobfish.init();
 // console.log("Hi my name is " + blobfish.name + ", I'm " + blobfish.getAge() + " and " + blobfish.vertebrateClass() + ". " + blobfish.spawn());
 // console.log(blobfish.toString());
 
-var pygmyOwl = new Animal('Gladys', '8 January 2011', 'bird');
+var pygmyOwl = new Animal('Jim', '8 January 2011', 'bird');
+pygmyOwl.init();
 // console.log("Hi my name is " + pygmyOwl.name + ", I'm " + pygmyOwl.getAge() + " and " + pygmyOwl.vertebrateClass() + ". " + pygmyOwl.lay());
 // console.log(pygmyOwl.toString());
 
 var honeyBadger = new Animal('Bertha', '19 September 1980', 'mammal');
+honeyBadger.init();
 // console.log("Hi my name is " + honeyBadger.name + ", I'm " + honeyBadger.getAge() + " and " + honeyBadger.vertebrateClass() + ". " + honeyBadger.giveBirth());
 // console.log(honeyBadger.toString());
-
-// Try-Catch statements to make sure animal species have correct info
