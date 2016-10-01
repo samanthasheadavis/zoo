@@ -43,7 +43,7 @@ Animal.prototype = {
     },
 
     buildMe: function() {
-  //    $('container').addClass('animal');
+
     },
 
     // init Function triggers buildCheck whenever a new species is built.
@@ -59,6 +59,13 @@ function Animal(name, birthday, vertebrate) { // birthday must be put in 'dd mon
     this.name = name;
     this.birthday = birthday;
     this.vertebrate = vertebrate;
+    this.regions = {
+      // create regions in html document to display animal name, age and kids in buildMe function.
+      animal: null,
+      age: null,
+      name: null,
+      kids: null
+    };
 
     // giveBirth is a function that produces a random number of children (between 1 and 10) with randomly assigned sexes.
     this.giveBirth = function() {
@@ -101,22 +108,22 @@ function Animal(name, birthday, vertebrate) { // birthday must be put in 'dd mon
 
 // -- Animal Instances -- //
 
-var emu = new Animal('Earl', '21 July 1993', 'mammal');
+var emu = new Animal('Earl', '21 July 1993', 'bird');
 emu.init();
-// console.log("Hi my name is " + emu.name + ", I'm " + emu.getAge() + " and " + emu.vertebrateClass() + ". " + emu.giveBirth());
-// console.log(emu.toString());
+// console.log("Hi my name is " + emu.name + ", I'm " + emu.getAge() + " and " + emu.vertebrateClass() + ". " + emu.lay());
+console.log(emu.toString());
 
 var blobfish = new Animal('Gertrude', '13 May 2001', 'fish');
 blobfish.init();
 // console.log("Hi my name is " + blobfish.name + ", I'm " + blobfish.getAge() + " and " + blobfish.vertebrateClass() + ". " + blobfish.spawn());
-// console.log(blobfish.toString());
+console.log(blobfish.toString());
 
 var pygmyOwl = new Animal('Jim', '8 January 2011', 'bird');
 pygmyOwl.init();
 // console.log("Hi my name is " + pygmyOwl.name + ", I'm " + pygmyOwl.getAge() + " and " + pygmyOwl.vertebrateClass() + ". " + pygmyOwl.lay());
-// console.log(pygmyOwl.toString());
+console.log(pygmyOwl.toString());
 
 var honeyBadger = new Animal('Bertha', '19 September 1980', 'mammal');
 honeyBadger.init();
 // console.log("Hi my name is " + honeyBadger.name + ", I'm " + honeyBadger.getAge() + " and " + honeyBadger.vertebrateClass() + ". " + honeyBadger.giveBirth());
-// console.log(honeyBadger.toString());
+console.log(honeyBadger.toString());

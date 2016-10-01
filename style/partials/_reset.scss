@@ -4,6 +4,7 @@
    License: none (public domain)
    This is a Sass partial
 */
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -22,62 +23,28 @@ time, mark, audio, video {
   border: 0;
   font-size: 100%;
   font: inherit;
-  vertical-align: baseline; }
-
+  vertical-align: baseline;
+}
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-  display: block; }
-
+  display: block;
+}
 body {
-  line-height: 1; }
-
+  line-height: 1;
+}
 ol, ul {
-  list-style: none; }
-
+  list-style: none;
+}
 blockquote, q {
-  quotes: none; }
-
+  quotes: none;
+}
 blockquote:before, blockquote:after,
 q:before, q:after {
   content: '';
-  content: none; }
-
+  content: none;
+}
 table {
   border-collapse: collapse;
-  border-spacing: 0; }
-
-#container {
-  width: 52%;
-  margin: 0 auto; }
-
-ul {
-  float: left;
-  list-style: none; }
-
-.animalIcon {
-  float: right;
-  height: 300px;
-  width: 300px;
-  margin: 15px;
-  border-radius: 50%;
-  background: linear-gradient(gray, lightgray);
-  position: relative; }
-  .animalIcon img {
-    height: auto;
-    width: 80%;
-    margin: 29px; }
-  .animalIcon .info {
-    background: red;
-    width: 25px;
-    height: 25px;
-    position: absolute;
-    top: 0; }
-    .animalIcon .info li {
-      top: 0;
-      width: 12px;
-      height: 12px;
-      background: black;
-      position: absolute; }
-
-/*# sourceMappingURL=style.css.map */
+  border-spacing: 0;
+}
