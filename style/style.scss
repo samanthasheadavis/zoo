@@ -5,16 +5,15 @@
 $top: 315px;
 $border: 1px solid gray;
 $headerFont: 'Monoton', cursive;
-$textFont:'Special Elite', cursive;
+$textFont: 'Roboto', sans-serif;
 
 // MIXINS
-
 @mixin textBox() {
-  font-family: $textFont;
-  font-size: 14px;
-  color: black;
-  text-align: center;
-  padding-top: 10px;
+    font-family: $textFont;
+    font-size: 14px;
+    color: black;
+    text-align: center;
+    padding-top: 10px;
 }
 
 #container {
@@ -23,11 +22,11 @@ $textFont:'Special Elite', cursive;
 }
 
 h1 {
-  text-align: center;
-  margin: 20px;
-  font-family: $headerFont;
-  font-size: 100px;
-  text-transform: uppercase;
+    text-align: center;
+    margin: 20px;
+    font-family: $headerFont;
+    font-size: 100px;
+    text-transform: uppercase;
 }
 
 ul {
@@ -39,7 +38,7 @@ ul {
     float: right;
     height: 300px;
     width: 300px;
-    margin: 15px 15px 75px;
+    margin: 15px 15px 100px;
     border-radius: 50%;
     background: linear-gradient(gray, lightgray);
     position: relative;
@@ -63,34 +62,17 @@ ul {
     }
 }
 
-#badgerName,
-#blobfishName,
-#emuName,
-#owlName {
+#armadilloInfo,
+#badgerInfo,
+#blobfishInfo,
+#owlInfo {
     top: $top;
-    left: 0;
-    border: $border;
-    @include textBox;
-}
-
-#badgerAge,
-#blobfishAge,
-#emuAge,
-#owlAge {
-    top: $top;
-    left: 100px;
-    border: $border;
+    left: 50px;
+    width: 200px;
     @include textBox;
 
-}
-
-#badgerKids,
-#blobfishKids,
-#emuKids,
-#owlKids {
-    top: $top;
-    left: 200px;
-    border: $border;
-    @include textBox;
-
+    span {
+        font-size: 20px;
+        font-weight: bold;
+    }
 }
