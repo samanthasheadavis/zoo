@@ -43,7 +43,16 @@ Animal.prototype = {
     },
 
     buildMe: function() {
+      var emuIcon = document.getElementById('emu');
+      var badgerIcon = document.getElementById('badger');
+      var blobFishIcon = document.getElementById('blobfish');
+      var owlIcon = document.getElementById('owl');
 
+
+      this.regions.emu = emuIcon;
+      this.regions.badger = badgerIcon;
+      this.regions.blobfish = blobFishIcon;
+      this.regions.owl = owlIcon;
     },
 
     // init Function triggers buildCheck whenever a new species is built.
@@ -61,10 +70,13 @@ function Animal(name, birthday, vertebrate) { // birthday must be put in 'dd mon
     this.vertebrate = vertebrate;
     this.regions = {
       // create regions in html document to display animal name, age and kids in buildMe function.
-      animal: null,
-      age: null,
-      name: null,
-      kids: null
+      emu: null,
+      badger: null,
+      blobfish: null,
+      owl: null,
+      badgerAge: null,
+      badgerName: null,
+      badgerKids: null
     };
 
     // giveBirth is a function that produces a random number of children (between 1 and 10) with randomly assigned sexes.
@@ -83,20 +95,20 @@ function Animal(name, birthday, vertebrate) { // birthday must be put in 'dd mon
                 children.push('girl');
             }
         }
-        return "I have " + numChildren + " children: " + children;
+        return numChildren + " children: " + children;
     };
     //spawn is a function that is applied to the fish classes of animals. It creates a random number of eggs.
     this.spawn = function() {
         //1. create random number of eggs between 1 and 300
         var numEggs = Math.floor(Math.random() * 300) + 1;
-        return "I produced " + numEggs + " eggs.";
+        return numEggs + " eggs.";
     };
 
     //lay is a function that is applied to the bird classes of animals. It creates a random number of eggs.
     this.lay = function() {
         //1. create random number of eggs between 1 and 12
         var numEggs = Math.floor(Math.random() * 12) + 1;
-        return "I produced " + numEggs + " eggs.";
+        return numEggs + " eggs.";
     };
 
     // ToString Method

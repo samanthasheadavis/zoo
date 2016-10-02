@@ -1,44 +1,96 @@
+// IMPORTS
 @import "partials/reset";
 
-#container {
-  width: 52%;
-  margin: 0 auto;
+// VARIABLES
+$top: 315px;
+$border: 1px solid gray;
+$headerFont: 'Monoton', cursive;
+$textFont:'Special Elite', cursive;
 
+// MIXINS
+
+@mixin textBox() {
+  font-family: $textFont;
+  font-size: 14px;
+  color: black;
+  text-align: center;
+  padding-top: 10px;
+}
+
+#container {
+    width: 52%;
+    margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  margin: 20px;
+  font-family: $headerFont;
+  font-size: 100px;
+  text-transform: uppercase;
 }
 
 ul {
-  float: left;
-  list-style: none;
+    float: left;
+    list-style: none;
 }
 
-  .animalIcon {
+.animalIcon {
     float: right;
     height: 300px;
     width: 300px;
-    margin: 15px;
+    margin: 15px 15px 75px;
     border-radius: 50%;
     background: linear-gradient(gray, lightgray);
     position: relative;
 
     img {
-      height: auto;
-      width: 80%;
-      margin: 29px;
+        height: auto;
+        width: 80%;
+        margin: 29px;
     }
+}
 
-    .info {
-      background: red;
-      width: 25px;
-      height: 25px;
-      position:absolute;
-      top: 0;
+.info {
+    position: absolute;
+    top: -10px;
+    left: 0;
 
-      li {
-        top: 0;
-        width: 12px;
-        height: 12px;
-        background: black;
+    div {
+        width: 100px;
+        height: 50px;
         position: absolute;
-      }
     }
-  }
+}
+
+#badgerName,
+#blobfishName,
+#emuName,
+#owlName {
+    top: $top;
+    left: 0;
+    border: $border;
+    @include textBox;
+}
+
+#badgerAge,
+#blobfishAge,
+#emuAge,
+#owlAge {
+    top: $top;
+    left: 100px;
+    border: $border;
+    @include textBox;
+
+}
+
+#badgerKids,
+#blobfishKids,
+#emuKids,
+#owlKids {
+    top: $top;
+    left: 200px;
+    border: $border;
+    @include textBox;
+
+}

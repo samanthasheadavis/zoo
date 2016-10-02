@@ -51,6 +51,13 @@ table {
   width: 52%;
   margin: 0 auto; }
 
+h1 {
+  text-align: center;
+  margin: 20px;
+  font-family: "Monoton", cursive;
+  font-size: 100px;
+  text-transform: uppercase; }
+
 ul {
   float: left;
   list-style: none; }
@@ -59,7 +66,7 @@ ul {
   float: right;
   height: 300px;
   width: 300px;
-  margin: 15px;
+  margin: 15px 15px 75px;
   border-radius: 50%;
   background: linear-gradient(gray, lightgray);
   position: relative; }
@@ -67,17 +74,53 @@ ul {
     height: auto;
     width: 80%;
     margin: 29px; }
-  .animalIcon .info {
-    background: red;
-    width: 25px;
-    height: 25px;
-    position: absolute;
-    top: 0; }
-    .animalIcon .info li {
-      top: 0;
-      width: 12px;
-      height: 12px;
-      background: black;
-      position: absolute; }
+
+.info {
+  position: absolute;
+  top: -10px;
+  left: 0; }
+  .info div {
+    width: 100px;
+    height: 50px;
+    position: absolute; }
+
+#badgerName,
+#blobfishName,
+#emuName,
+#owlName {
+  top: 315px;
+  left: 0;
+  border: 1px solid gray;
+  font-family: "Special Elite", cursive;
+  font-size: 14px;
+  color: black;
+  text-align: center;
+  padding-top: 10px; }
+
+#badgerAge,
+#blobfishAge,
+#emuAge,
+#owlAge {
+  top: 315px;
+  left: 100px;
+  border: 1px solid gray;
+  font-family: "Special Elite", cursive;
+  font-size: 14px;
+  color: black;
+  text-align: center;
+  padding-top: 10px; }
+
+#badgerKids,
+#blobfishKids,
+#emuKids,
+#owlKids {
+  top: 315px;
+  left: 200px;
+  border: 1px solid gray;
+  font-family: "Special Elite", cursive;
+  font-size: 14px;
+  color: black;
+  text-align: center;
+  padding-top: 10px; }
 
 /*# sourceMappingURL=style.css.map */
