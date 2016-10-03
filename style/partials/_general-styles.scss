@@ -1,0 +1,31 @@
+h1 {
+    text-align: center;
+    margin: 20px;
+    font-family: $headerFont;
+    font-size: 100px;
+    text-transform: uppercase;
+}
+
+h3 {
+    text-align: center;
+    font-family: $textFont;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+ul {
+    float: left;
+    list-style: none;
+}
+
+.info {
+    position: absolute;
+    top: -10px;
+    left: 0;
+
+    div {
+        width: 100px;
+        height: 50px;
+        position: absolute;
+    }
+}

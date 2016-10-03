@@ -1,0 +1,23 @@
+
+// MIXINS
+@mixin textBox() {
+    font-family: $textFont;
+    font-size: 14px;
+    color: black;
+    text-align: center;
+    padding-top: 10px;
+}
+@mixin roll($degree) {
+    transform: rotate($degree);
+}
+@mixin transx($percent) {
+    transform: translateX($percent);
+}
+@mixin transy($percent) {
+    transform: translateY($percent);
+}
+@mixin media ($bp) {
+     @media only screen and (max-width: $bp){
+        @content;
+    }
+}

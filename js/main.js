@@ -172,9 +172,9 @@ function Animal(name, birthday, vertebrate) { // birthday must be put in 'dd mon
     };
 }
 
-// -- Animal Instances -- //
+// -- Animal Instances with JSON Jquery-- //
 
-var promise = $.get('data/animals.json')
+var promise = $.get('data/animals.json');
 
 promise.then(function(armadilloJson) {
   var armadillo = new Animal(armadilloJson.animals[0].name, armadilloJson.animals[0].birthday, armadilloJson.animals[0].vertebrate);

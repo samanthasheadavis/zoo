@@ -49,7 +49,44 @@ table {
 
 #container {
   width: 52%;
-  margin: 0 auto; }
+  margin: 0 auto;
+  transition: all 1s ease; }
+  @media only screen and (max-width: 1269px) {
+    #container {
+      width: 55%; } }
+  @media only screen and (max-width: 1200px) {
+    #container {
+      width: 60%; } }
+  @media only screen and (max-width: 1100px) {
+    #container {
+      width: 65%; } }
+  @media only screen and (max-width: 1100px) {
+    #container {
+      width: 65%; } }
+  @media only screen and (max-width: 1015px) {
+    #container {
+      width: 70%; } }
+  @media only screen and (max-width: 942px) {
+    #container {
+      width: 75%; } }
+  @media only screen and (max-width: 879px) {
+    #container {
+      width: 80%; } }
+  @media only screen and (max-width: 824px) {
+    #container {
+      width: 85%; } }
+  @media only screen and (max-width: 776px) {
+    #container {
+      width: 90%; } }
+  @media only screen and (max-width: 733px) {
+    #container {
+      width: 45%; } }
+  @media only screen and (max-width: 550px) {
+    #container {
+      width: 60%; } }
+  @media only screen and (max-width: 450px) {
+    #container {
+      width: 72%; } }
 
 h1 {
   text-align: center;
@@ -58,9 +95,24 @@ h1 {
   font-size: 100px;
   text-transform: uppercase; }
 
+h3 {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  margin-bottom: 15px; }
+
 ul {
   float: left;
   list-style: none; }
+
+.info {
+  position: absolute;
+  top: -10px;
+  left: 0; }
+  .info div {
+    width: 100px;
+    height: 50px;
+    position: absolute; }
 
 .animalIcon {
   float: right;
@@ -83,15 +135,6 @@ ul {
       animation: squidge 2s ease; }
     .animalIcon img.hop {
       animation: hop 2s ease; }
-
-.info {
-  position: absolute;
-  top: -10px;
-  left: 0; }
-  .info div {
-    width: 100px;
-    height: 50px;
-    position: absolute; }
 
 #armadilloInfo,
 #badgerInfo,

@@ -1,0 +1,136 @@
+.animalIcon {
+    float: right;
+    height: 300px;
+    width: 300px;
+    margin: 15px 15px 100px;
+    border-radius: 50%;
+    background: linear-gradient(gray, lightgray);
+    position: relative;
+    transition: all 1s ease;
+
+    img {
+        height: auto;
+        width: 80%;
+        margin: 29px;
+
+        &.roll {
+            animation: roll 2s ease;
+        }
+
+        &.rassle {
+            animation: rassle 2s ease;
+        }
+
+        &.squidge {
+            animation: squidge 2s ease;
+        }
+
+        &.hop {
+            animation: hop 2s ease;
+        }
+    }
+}
+
+#armadilloInfo,
+#badgerInfo,
+#blobfishInfo,
+#owlInfo {
+    top: $top;
+    left: 50px;
+    width: 200px;
+    @include textBox;
+
+    span {
+        font-size: 20px;
+        font-weight: bold;
+    }
+}
+//Animations
+@keyframes roll {
+    0% {
+        @include roll(0deg)
+    }
+
+    100% {
+        @include roll(720deg);
+    }
+}
+@keyframes rassle {
+    0% {
+        @include transx(0%);
+    }
+
+    11% {
+        @include transx(50%);
+    }
+
+    22% {
+        @include transy(20%);
+    }
+
+    33% {
+        @include transy(-20%);
+    }
+
+    44% {
+        @include transx(-50%);
+    }
+
+    55% {
+        @include transy(20%);
+    }
+
+    66% {
+        @include transy(-20%);
+    }
+
+    77% {
+        @include transx(50%)
+    }
+}
+@keyframes squidge {
+    0% {
+        transform: scaleX(1);
+    }
+
+    33% {
+        transform: scaleX(1.3);
+    }
+
+    66% {
+        transform: scaleY(1.5);
+    }
+}
+@keyframes hop {
+    0% {
+        @include transy(0%);
+    }
+
+    11% {
+        @include transy(-15%)
+    }
+
+    22% {
+        @include transy(15%);
+    }
+
+    33% {
+        @include transy(-15%);
+    }
+
+    44% {
+        @include transy(15%);
+    }
+
+    55% {
+        @include transy(-15%);
+    }
+
+    66% {
+        @include transy(15%);
+    }
+
+    77% {
+        @include transy(-15%);
+    }
+}
