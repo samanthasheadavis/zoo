@@ -2,6 +2,30 @@
 
 Animal.prototype = {
     // birthday is a function that takes in the date of birth of the animal instance, parses it and returns age in years.
+    buildMe: function() {
+
+        //1. Create variables for page elements
+        var armadilloIcon = document.getElementById('armadillo');
+        var badgerIcon = document.getElementById('badger');
+        var blobFishIcon = document.getElementById('blobfish');
+        var owlIcon = document.getElementById('owl');
+
+        // variables for info
+        var badgerInfo = document.getElementById('badgerInfo');
+        var armadilloInfo = document.getElementById('armadilloInfo');
+        var blobfishInfo = document.getElementById('blobfishInfo');
+        var owlInfo = document.getElementById('owlInfo');
+
+
+        //2. Set regions equal to page elements.
+        this.regions.armadillo = armadilloIcon;
+        this.regions.badger = badgerIcon;
+        this.regions.blobfish = blobFishIcon;
+        this.regions.owl = owlIcon;
+
+    },
+
+
     getAge: function(birthday) {
         // 1. Parse string of day month and year into js date.
         var parseBday = Date.parse(this.birthday);
@@ -38,34 +62,14 @@ Animal.prototype = {
         }
     },
 
-    buildMe: function() {
-
-        //1. Create variables for page elements
-        var armadilloIcon = document.getElementById('armadillo');
-        var badgerIcon = document.getElementById('badger');
-        var blobFishIcon = document.getElementById('blobfish');
-        var owlIcon = document.getElementById('owl');
-
-        // variables for info
-        var badgerInfo = document.getElementById('badgerInfo');
-        var armadilloInfo = document.getElementById('armadilloInfo');
-        var blobfishInfo = document.getElementById('blobfishInfo');
-        var owlInfo = document.getElementById('owlInfo');
-
-
-        //2. Set regions equal to page elements.
-        this.regions.armadillo = armadilloIcon;
-        this.regions.badger = badgerIcon;
-        this.regions.blobfish = blobFishIcon;
-        this.regions.owl = owlIcon;
-    },
 
     // init Function triggers buildCheck whenever a new species is built.
     init: function() {
         this.buildCheck();
         this.buildMe();
-    }
 
+
+    }
 };
 // -- Animal Constructor -- //
 
@@ -79,7 +83,9 @@ function Animal(name, birthday, vertebrate) { // birthday must be put in 'dd mon
         badger: null,
         blobfish: null,
         owl: null,
+
     };
+
 
     // giveBirth is a function that produces a random number of children (between 1 and 10) with randomly assigned sexes.
     this.giveBirth = function() {
@@ -120,41 +126,83 @@ function Animal(name, birthday, vertebrate) { // birthday must be put in 'dd mon
     };
 
     // Animation Methods
+    this.animateArmadillo = function() {
+        this.regions.armadillo.addEventListener('click', this.roll.bind(this));
+    };
+
+    this.animateBadger = function() {
+        this.regions.badger.addEventListener('click', this.rassle.bind(this));
+    };
+
+    this.animateBlobfish = function() {
+        this.regions.blobfish.addEventListener('click', this.squidge.bind(this));
+    };
+    this.animateOwl = function() {
+        this.regions.owl.addEventListener('click', this.hop.bind(this));
+    };
+
+
     this.roll = function() {
-      this.regions.armadillo.className += 'roll';
+        this.regions.armadillo.className += 'roll';
+        this.regions.armadillo.addEventListener('animationend', this.revert.bind(this));
     };
 
     this.rassle = function() {
-      this.regions.badger.className += 'rassle';
+        this.regions.badger.className += 'rassle';
+        this.regions.badger.addEventListener('animationend', this.revert.bind(this));
+
     };
 
     this.squidge = function() {
-      this.regions.blobfish.className += 'squidge';
+        this.regions.blobfish.className += 'squidge';
+        this.regions.blobfish.addEventListener('animationend', this.revert.bind(this));
+
     };
 
     this.hop = function() {
-      this.regions.owl.className += 'hop';
+        this.regions.owl.className += 'hop';
+        this.regions.owl.addEventListener('animationend', this.revert.bind(this));
+
+    };
+    this.revert = function() {
+        this.regions.armadillo.className = '';
+        this.regions.badger.className = '';
+        this.regions.blobfish.className = '';
+        this.regions.owl.className = '';
     };
 }
 
 // -- Animal Instances -- //
 
-var armadillo = new Animal('Earl', '21 July 1993', 'mammal');
-armadillo.init();
-armadilloInfo.innerHTML = "<span>Armadillo</span>" + '<br><br>' + armadillo.toString();
-armadillo.roll();
+var promise = $.get('data/animals.json')
 
-var blobfish = new Animal('Gertrude', '13 May 2001', 'fish');
-blobfish.init();
-blobfishInfo.innerHTML = "<span>Blobfish</span>" + '<br><br>' + blobfish.toString();
-blobfish.squidge();
-
-var pygmyOwl = new Animal('Jim', '8 January 2011', 'bird');
-pygmyOwl.init();
-owlInfo.innerHTML = "<span>pygmy Owl</span>" + '<br><br>' + pygmyOwl.toString();
-pygmyOwl.hop();
-
-var honeyBadger = new Animal('Bertha', '19 September 1980', 'mammal');
-honeyBadger.init();
-badgerInfo.innerHTML = "<span>Honey Badger</span>" + '<br><br>' + honeyBadger.toString();
-honeyBadger.rassle();
+promise.then(function(armadilloJson) {
+  var armadillo = new Animal(armadilloJson.animals[0].name, armadilloJson.animals[0].birthday, armadilloJson.animals[0].vertebrate);
+  armadillo.init();
+  armadilloInfo.innerHTML = "<span>Armadillo</span>" + '<br><br>' + armadillo.toString();
+  armadillo.animateArmadillo();
+  armadillo.roll();
+  return promise;
+}).then(function(blobfishJson) {
+  var blobfish = new Animal(blobfishJson.animals[1].name, blobfishJson.animals[1].birthday, blobfishJson.animals[1].vertebrate);
+  blobfish.init();
+  blobfishInfo.innerHTML = "<span>Blobfish</span>" + '<br><br>' + blobfish.toString();
+  blobfish.animateBlobfish();
+  blobfish.squidge();
+  return promise;
+}).then(function(owlJson) {
+  var pygmyOwl = new Animal(owlJson.animals[2].name, owlJson.animals[2].birthday, owlJson.animals[2].vertebrate);
+  pygmyOwl.init();
+  owlInfo.innerHTML = "<span>pygmy Owl</span>" + '<br><br>' + pygmyOwl.toString();
+  pygmyOwl.animateOwl();
+  pygmyOwl.hop();
+  return promise;
+}).then(function(badgerJson) {
+  var honeyBadger = new Animal(badgerJson.animals[3].name, badgerJson.animals[3].birthday, badgerJson.animals[3].vertebrate);
+  honeyBadger.init();
+  badgerInfo.innerHTML = "<span>Honey Badger</span>" + '<br><br>' + honeyBadger.toString();
+  honeyBadger.animateBadger();
+  honeyBadger.rassle();
+}).catch(function(error){
+  console.log(error);
+});

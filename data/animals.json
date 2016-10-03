@@ -1,0 +1,21 @@
+{
+  "animals": [
+    {
+      "name": "Earl",
+      "birthday": "21 July 1993",
+      "vertebrate": "mammal"
+    },{
+      "name": "Gertrude",
+      "birthday": "13 May 2001",
+      "vertebrate": "fish"
+    },{
+      "name": "Jim",
+      "birthday": "8 January 2011",
+      "vertebrate": "bird"
+    }, {
+      "name": "Bertha",
+      "birthday": "19 September 1980",
+      "vertebrate": "mammal"
+    }
+  ]
+}
