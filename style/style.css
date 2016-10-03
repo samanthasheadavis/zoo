@@ -69,11 +69,20 @@ ul {
   margin: 15px 15px 100px;
   border-radius: 50%;
   background: linear-gradient(gray, lightgray);
-  position: relative; }
+  position: relative;
+  transition: all 1s ease; }
   .animalIcon img {
     height: auto;
     width: 80%;
     margin: 29px; }
+    .animalIcon img.roll {
+      animation: roll 2s ease; }
+    .animalIcon img.rassle {
+      animation: rassle 2s ease; }
+    .animalIcon img.squidge {
+      animation: squidge 2s ease; }
+    .animalIcon img.hop {
+      animation: hop 2s ease; }
 
 .info {
   position: absolute;
@@ -102,5 +111,52 @@ ul {
   #owlInfo span {
     font-size: 20px;
     font-weight: bold; }
+
+@keyframes roll {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(720deg); } }
+@keyframes rassle {
+  0% {
+    transform: translateX(0%); }
+  11% {
+    transform: translateX(50%); }
+  22% {
+    transform: translateY(20%); }
+  33% {
+    transform: translateY(-20%); }
+  44% {
+    transform: translateX(-50%); }
+  55% {
+    transform: translateY(20%); }
+  66% {
+    transform: translateY(-20%); }
+  77% {
+    transform: translateX(50%); } }
+@keyframes squidge {
+  0% {
+    transform: scaleX(1); }
+  33% {
+    transform: scaleX(1.3); }
+  66% {
+    transform: scaleY(1.5); } }
+@keyframes hop {
+  0% {
+    transform: translateY(0%); }
+  11% {
+    transform: translateY(-15%); }
+  22% {
+    transform: translateY(15%); }
+  33% {
+    transform: translateY(-15%); }
+  44% {
+    transform: translateY(15%); }
+  55% {
+    transform: translateY(-15%); }
+  66% {
+    transform: translateY(15%); }
+  77% {
+    transform: translateY(-15%); } }
 
 /*# sourceMappingURL=style.css.map */

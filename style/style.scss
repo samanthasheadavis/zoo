@@ -1,19 +1,24 @@
 // IMPORTS
-@import "partials/reset";
-
-// VARIABLES
+@import "partials/reset"; // VARIABLES
 $top: 315px;
 $border: 1px solid gray;
 $headerFont: 'Monoton', cursive;
-$textFont: 'Roboto', sans-serif;
-
-// MIXINS
+$textFont: 'Roboto', sans-serif; // MIXINS
 @mixin textBox() {
     font-family: $textFont;
     font-size: 14px;
     color: black;
     text-align: center;
     padding-top: 10px;
+}
+@mixin roll($degree) {
+    transform: rotate($degree);
+}
+@mixin transx($percent) {
+    transform: translateX($percent);
+}
+@mixin transy($percent) {
+    transform: translateY($percent);
 }
 
 #container {
@@ -42,11 +47,28 @@ ul {
     border-radius: 50%;
     background: linear-gradient(gray, lightgray);
     position: relative;
+    transition: all 1s ease;
 
     img {
         height: auto;
         width: 80%;
         margin: 29px;
+
+        &.roll {
+            animation: roll 2s ease;
+        }
+
+        &.rassle {
+            animation: rassle 2s ease;
+        }
+
+        &.squidge {
+            animation: squidge 2s ease;
+        }
+
+        &.hop {
+            animation: hop 2s ease;
+        }
     }
 }
 
@@ -75,4 +97,92 @@ ul {
         font-size: 20px;
         font-weight: bold;
     }
+}
+//Animations
+@keyframes roll {
+    0% {
+        @include roll(0deg)
+    }
+
+    100% {
+        @include roll(720deg);
+    }
+}
+@keyframes rassle {
+    0% {
+        @include transx(0%);
+    }
+
+    11% {
+        @include transx(50%);
+    }
+
+    22% {
+        @include transy(20%);
+    }
+
+    33% {
+        @include transy(-20%);
+    }
+
+    44% {
+        @include transx(-50%);
+    }
+
+    55% {
+        @include transy(20%);
+    }
+
+    66% {
+        @include transy(-20%);
+    }
+
+    77% {
+        @include transx(50%)
+    }
+}
+@keyframes squidge {
+    0% {
+        transform: scaleX(1);
+    }
+
+    33% {
+        transform: scaleX(1.3);
+    }
+
+    66% {
+        transform: scaleY(1.5);
+    }
+}
+
+@keyframes hop {
+  0% {
+    @include transy(0%);
+  }
+  11% {
+    @include transy(-15%)
+  }
+  22% {
+      @include transy(15%);
+  }
+
+  33% {
+      @include transy(-15%);
+  }
+
+  44% {
+      @include transy(15%);
+  }
+
+  55% {
+      @include transy(-15%);
+  }
+
+  66% {
+      @include transy(15%);
+  }
+
+  77% {
+      @include transy(-15%);
+  }
 }

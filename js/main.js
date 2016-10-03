@@ -64,8 +64,6 @@ Animal.prototype = {
     init: function() {
         this.buildCheck();
         this.buildMe();
-        // add event listeners to trigger animation methods.
-
     }
 
 };
@@ -121,15 +119,21 @@ function Animal(name, birthday, vertebrate) { // birthday must be put in 'dd mon
         return animalToString;
     };
 
-    // Roll Animation Method
+    // Animation Methods
     this.roll = function() {
       this.regions.armadillo.className += 'roll';
-      console.log('roll');
     };
 
     this.rassle = function() {
       this.regions.badger.className += 'rassle';
-      console.log('rassle');
+    };
+
+    this.squidge = function() {
+      this.regions.blobfish.className += 'squidge';
+    };
+
+    this.hop = function() {
+      this.regions.owl.className += 'hop';
     };
 }
 
@@ -138,15 +142,19 @@ function Animal(name, birthday, vertebrate) { // birthday must be put in 'dd mon
 var armadillo = new Animal('Earl', '21 July 1993', 'mammal');
 armadillo.init();
 armadilloInfo.innerHTML = "<span>Armadillo</span>" + '<br><br>' + armadillo.toString();
+armadillo.roll();
 
 var blobfish = new Animal('Gertrude', '13 May 2001', 'fish');
 blobfish.init();
 blobfishInfo.innerHTML = "<span>Blobfish</span>" + '<br><br>' + blobfish.toString();
+blobfish.squidge();
 
 var pygmyOwl = new Animal('Jim', '8 January 2011', 'bird');
 pygmyOwl.init();
 owlInfo.innerHTML = "<span>pygmy Owl</span>" + '<br><br>' + pygmyOwl.toString();
+pygmyOwl.hop();
 
 var honeyBadger = new Animal('Bertha', '19 September 1980', 'mammal');
 honeyBadger.init();
 badgerInfo.innerHTML = "<span>Honey Badger</span>" + '<br><br>' + honeyBadger.toString();
+honeyBadger.rassle();
