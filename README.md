@@ -1,7 +1,7 @@
 # Zoo
 #### Week 3 Weekend Homework
 
-For this project I created an animal constructor and made four different instances with species-specific methods.
+A fun experiment using vanilla JS constructors and CSS animations to build a 'zoo' of animals with different methods. 
 
 Features:
 * Try-Catch statements to validate JSON data
